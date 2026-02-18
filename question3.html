@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marks Calculator</title>
+</head>
+<body>
+
+<h3>Enter Marks of 5 Subjects</h3>
+
+<input type="number" id="m1" placeholder="Subject 1"><br><br>
+<input type="number" id="m2" placeholder="Subject 2"><br><br>
+<input type="number" id="m3" placeholder="Subject 3"><br><br>
+<input type="number" id="m4" placeholder="Subject 4"><br><br>
+<input type="number" id="m5" placeholder="Subject 5"><br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calculate() {
+    var m1 = parseFloat(document.getElementById("m1").value) || 0;
+    var m2 = parseFloat(document.getElementById("m2").value) || 0;
+    var m3 = parseFloat(document.getElementById("m3").value) || 0;
+    var m4 = parseFloat(document.getElementById("m4").value) || 0;
+    var m5 = parseFloat(document.getElementById("m5").value) || 0;
+
+    var total = m1 + m2 + m3 + m4 + m5;
+    var average = total / 5;
+    var grade = "";
+
+    if (average >= 90)
+        grade = "A";
+    else if (average >= 75)
+        grade = "B";
+    else if (average >= 60)
+        grade = "C";
+    else if (average >= 50)
+        grade = "D";
+    else
+        grade = "Fail";
+
+    document.getElementById("result").innerHTML =
+        "Total: " + total + "<br>" +
+        "Average: " + average.toFixed(2) + "<br>" +
+        "Grade: " + grade;
+}
+</script>
+
+</body>
+</html>
